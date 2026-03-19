@@ -1,3 +1,4 @@
 # Check the total amount in the wallet.
-bitcoin-cli -regtest loadwallet "builderswallet"
+ADDRESS=$(bitcoin-cli -regtest -rpcwallet=builderswallet getnewaddress)
+bitcoin-cli -regtest generatetoaddress 101 $ADDRESS
 bitcoin-cli -regtest getbalance
