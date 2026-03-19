@@ -1,5 +1,5 @@
 # Check the total amount in the wallet.
-ADDRESS=$(bitcoin-cli -regtest getaddressesbylabel "builderswallet" | jq -r 'keys[0]')
+WALLET_NAME=$(bitcoin-cli -regtest createwallet "builderswallet")
 
-bitcoin-cli -regtest generatetoaddress 101 $ADDRESS
-bitcoin-cli -regtest getbalance
+bitcoin-cli -regtest generatetoaddress 101 $WALLET_NAME
+bitcoin-cli -regtest getbalance $WALLET_NAME
